@@ -35,7 +35,7 @@ routes.post("/classes", async (req, res) => {
     }));
     await trx("class_schedule").insert(classSchedule);
     await trx.commit();
-    return res.send();
+    return res.status(201).send();
   } catch (error) {
     await trx.rollback();
     res.status(500).send({
